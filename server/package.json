@@ -17,7 +17,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@auth0/auth0-spa-js": "^1.6.5",
+    "@auth0/auth0-spa-js": "^1.7.0",
     "concurrently": "^5.1.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
@@ -25,6 +25,7 @@
     "if-env": "^1.0.4",
     "jwks-rsa": "^1.8.0",
     "npm-run-all": "^4.1.5",
+    "react-router-dom": "^5.1.2",
     "socket.io": "^2.2.0"
   }
 }

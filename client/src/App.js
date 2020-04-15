@@ -1,26 +1,30 @@
-import React, { useContext } from 'react'; // <-- updated
+import React from "react";
+import NavBar from "./components/NavBar";
 import Chat from './components/Chat/Chat';
 import Join from './components/Join/Join';
-import 'bulma/css/bulma.css';
-import { Auth0Context } from './contexts/auth0-context'; 
+// New - import the React Router components, and the Profile page component
+import { Router, Route, Switch } from "react-router-dom";
+import Profile from "./components/Profile";
+import history from "./utils/history";
+import PrivateRoute from "./components/PrivateRoute";
 
-import { BrowserRouter as Router, Route } from "react-router-dom";
 function App() {
-  const auth0 = useContext(Auth0Context);
-
-const App = () => {
   return (
-    <div className="hero is-info is-fullheight">
-      <div className="hero-body">
-        <div className="container has-text-centered">
-          <h1>Click Below!</h1>
-          <button onClick={auth0.loginWithRedirect} className="button is-danger">
-            Login
-          </button>
-        </div>
-      </div>
+    <div className="App">
+      {/* Don't forget to include the history module */}
+      <Router history={history}>
+        <header>
+          <NavBar />
+        </header>
+        <Switch>
+          <Route path="/" exact component={Join} />
+          <Route path="/profile" component={Profile} />
+          <Route path="/chat" component={Chat} />
+        </Switch>
+        <PrivateRoute path="/profile" component={Profile} />
+      </Router>
     </div>
   );
 }
-}
+
 export default App;
