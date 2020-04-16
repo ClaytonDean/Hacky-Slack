@@ -8,6 +8,7 @@ import Profile from "./components/Profile";
 import history from "./utils/history";
 import PrivateRoute from "./components/PrivateRoute";
 import { useAuth0 } from "./react-auth0-spa";
+import ExternalApi from "./components/views/ExternalApi";
 
 function App() {
   const { loading } = useAuth0();
@@ -23,9 +24,10 @@ function App() {
         </header>
         <Switch>
           <Route path="/" exact component={Splash} />
-          <Route path="/profile" component={Profile} />
+          <Route path="/join" exact component={Join} />
           <Route path="/chat" component={Chat} />
           <PrivateRoute path="/profile" component={Profile} />
+          <PrivateRoute path="/external-api" component={ExternalApi} />
         </Switch>
       </Router>
     </div>
