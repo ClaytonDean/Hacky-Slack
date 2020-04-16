@@ -19,10 +19,9 @@ function App() {
         <Switch>
           <Route path="/" exact component={Splash} />
           <Route path="/join" exact component={Join} />
-          <Route path="/profile" component={Profile} />
           <Route path="/chat" component={Chat} />
-        </Switch>
         <PrivateRoute path="/profile" component={Profile} />
+        </Switch>
       </Router>
     </div>
   );
