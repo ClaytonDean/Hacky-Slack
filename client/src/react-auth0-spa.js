@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useContext } from "react";
 import createAuth0Client from "@auth0/auth0-spa-js";
-
+import axios from 'axios';
 const DEFAULT_REDIRECT_CALLBACK = () =>
   window.history.replaceState({}, document.title, window.location.pathname);
 
@@ -34,6 +34,17 @@ export const Auth0Provider = ({
 
       if (isAuthenticated) {
         const user = await auth0FromHook.getUser();
+        console.log("USer Details",user);
+        let userrecord ={
+          firstname: user.given_name,
+          lastname: user.family_name,
+          nickname: user.nickname,
+          email: user.email,
+          sub: user.sub
+        }
+        axios.post("/api/user",userrecord,function(response){
+          console.log("User created",response)
+        })
         setUser(user);
       }
 
@@ -53,6 +64,7 @@ export const Auth0Provider = ({
       setPopupOpen(false);
     }
     const user = await auth0Client.getUser();
+    console.log("Login with Prop",user)
     setUser(user);
     setIsAuthenticated(true);
   };
@@ -61,6 +73,7 @@ export const Auth0Provider = ({
     setLoading(true);
     await auth0Client.handleRedirectCallback();
     const user = await auth0Client.getUser();
+    console.log("Handle Redirect",user)
     setLoading(false);
     setIsAuthenticated(true);
     setUser(user);
