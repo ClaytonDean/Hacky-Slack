@@ -7,6 +7,7 @@ import { Router, Route, Switch } from "react-router-dom";
 import Profile from "./components/Profile";
 import history from "./utils/history";
 import PrivateRoute from "./components/PrivateRoute";
+import ExternalApi from "./components/views/ExternalApi";
 
 function App() {
   return (
@@ -20,8 +21,9 @@ function App() {
           <Route path="/" exact component={Join} />
           <Route path="/profile" component={Profile} />
           <Route path="/chat" component={Chat} />
-        </Switch>
         <PrivateRoute path="/profile" component={Profile} />
+        <PrivateRoute path="/external-api" component={ExternalApi} />
+        </Switch>
       </Router>
     </div>
   );
