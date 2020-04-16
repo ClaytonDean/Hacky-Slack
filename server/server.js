@@ -1,6 +1,6 @@
 const express = require("express");
 const mongoose = require("mongoose");
-const routes = require("./routes");
+const routes = require("./route/apiroute");
 
 const cors = require("cors");
 const jwt = require("express-jwt");
