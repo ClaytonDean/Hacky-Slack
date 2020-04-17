@@ -16,7 +16,7 @@ export default function SplashPage() {
         <h1 className="heading">Get Authorized</h1>
         
         <Link  onClick={() => loginWithPopup({})} to={`/join`}>
-          <button onClick={() => loginWithPopup({})} className={'button mt-20'} type="submit">Sign In</button>
+          <button onClick={() => loginWithPopup({})} className={'button2 mt-20'} type="submit">Sign In</button>
         </Link>
           
         

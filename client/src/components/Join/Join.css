@@ -53,9 +53,11 @@ body {
     color: #fff !important;
     text-transform: uppercase;
     text-decoration: none;
-    background: #2979FF;
     padding: 20px;
+    margin: auto;
+    margin-top: 4px;
     border-radius: 5px;
+    background-color: #1A1A1D;
     display: inline-block;
     border: none;
     width: 100%;
