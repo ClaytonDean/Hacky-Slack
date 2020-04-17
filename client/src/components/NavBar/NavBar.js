@@ -8,15 +8,15 @@ const NavBar = () => {
     return (
         <div className="navBar">
             {!isAuthenticated && (
-                <button onClick={() => loginWithPopup({})}>Log in</button>
+                <button className="button2" onClick={() => loginWithPopup({})}>Log in</button>
             )}
 
-            {isAuthenticated && <button onClick={() => logout()}>Log out</button>}
+            {isAuthenticated && <button className="button2" onClick={() => logout()}>Log out</button>}
             {isAuthenticated && (
                 <span>
 
                     <Link to="/">
-                        <button>Home</button>
+                        <button className="button2" >Home</button>
                         </Link>  
                 </span>
             )}
