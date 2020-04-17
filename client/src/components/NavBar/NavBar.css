@@ -1,0 +1,20 @@
+.navBar{
+    padding: 10px;
+    background-color: #1A1A1D;
+}
+
+button {
+    padding: 16px;
+    font-size: 15px;
+    margin: 10px;
+    border-radius: 8px;
+    transition-duration: 0.4s;
+    background-color: #555555;
+    color: white;
+}
+
+button:hover {
+    background-color: white;
+    color: black;
+    border: 2px solid #555555;
+}
