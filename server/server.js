@@ -19,31 +19,13 @@ const PORT = process.env.PORT || 3001;
 app.use(router);
 app.use(cors({ origin: 'http://localhost:3000' }));
 
-const authConfig = {
-  domain: "dev-stv05wsb.auth0.com",
-  audience: "https://api.hackyslack.com/"
-};
 
-// Define middleware that validates incoming bearer tokens
-// using JWKS from YOUR_DOMAIN
-const checkJwt = jwt({
-  secret: jwksRsa.expressJwtSecret({
-    cache: true,
-    rateLimit: true,
-    jwksRequestsPerMinute: 5,
-    jwksUri: `https://${authConfig.domain}/.well-known/jwks.json`
-  }),
 
-  audience: authConfig.audience,
-  issuer: `https://${authConfig.domain}/`,
-  algorithm: ["RS256"]
-});
-
-app.get("/api/external", checkJwt, (req, res) => {
-  res.send({
-    msg: "Your Access Token was successfully validated!"
-  });
-});
+// app.get("/api/external", checkJwt, (req, res) => {
+//   res.send({
+//     msg: "Your Access Token was successfully validated!"
+//   });
+// });
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
