@@ -4,9 +4,9 @@
     "private": true,
     "proxy": "http://localhost:3001/",
     "dependencies": {
-        "query": "^0.2.0",
         "@auth0/auth0-spa-js": "^1.7.0",
         "axios": "^0.19.2",
+        "query": "^0.2.0",
         "query-string": "^6.8.2",
         "react": "^16.9.0",
         "react-dom": "^16.9.0",

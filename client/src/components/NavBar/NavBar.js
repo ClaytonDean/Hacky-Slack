@@ -1,11 +1,12 @@
 import React from "react";
-import { useAuth0 } from "../react-auth0-spa";
+import { useAuth0 } from "../../react-auth0-spa";
 import { Link } from "react-router-dom";
+import './NavBar.css';
 const NavBar = () => {
     const { isAuthenticated,loginWithPopup, logout } = useAuth0();
 
     return (
-        <div>
+        <div className="navBar">
             {!isAuthenticated && (
                 <button onClick={() => loginWithPopup({})}>Log in</button>
             )}
@@ -13,8 +14,10 @@ const NavBar = () => {
             {isAuthenticated && <button onClick={() => logout()}>Log out</button>}
             {isAuthenticated && (
                 <span>
-                    <Link to="/"> <button>Home</button> </Link>&nbsp;
-                    <Link to="/profile">Profile</Link>
+
+                    <Link to="/">
+                        <button>Home</button>
+                        </Link>  
                 </span>
             )}
         </div>
