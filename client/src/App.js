@@ -1,5 +1,5 @@
 import React from "react";
-import NavBar from "./components/NavBar";
+import NavBar from "./components/NavBar/NavBar";
 import Chat from './components/Chat/Chat';
 import Join from './components/Join/Join';
 import Splash from './components/splashPage/splash';
