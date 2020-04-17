@@ -1,11 +1,8 @@
 const http = require('http');
+const path = require("path");
 const express = require('express');
 const socketio = require('socket.io');
-const cors = require('cors');
-const jwt = require("express-jwt");
-const jwksRsa = require("jwks-rsa");
 const mongoose = require("mongoose");
-// const routes = require("./routes");
 const router = require('./route/apiroute');
 
 const { addUser, removeUser, getUser, getUsersInRoom } = require('./users');
@@ -16,31 +13,17 @@ const io = socketio(server);
 
 const PORT = process.env.PORT || 3001;
 
-app.use(router);
-app.use(cors({ origin: 'http://localhost:3000' }));
-
-
-
-// app.get("/api/external", checkJwt, (req, res) => {
-//   res.send({
-//     msg: "Your Access Token was successfully validated!"
-//   });
-// });
-
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // Serve up static assets (usually on heroku)
 if (process.env.NODE_ENV === "production") {
-  app.use(express.static("client/build"));
+  app.use(express.static("../client/build"));
 }
-// Add routes, both API and view
-// app.use(routes);
 
 // Connect to the Mongo DB
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/hackyslack");
 
-app.use(cors());
 app.use(router);
 
 io.on('connection', (socket) => {
@@ -77,4 +60,8 @@ io.on('connection', (socket) => {
   })
 });
 
-server.listen(process.env.PORT || 5000, () => console.log(`Server has started.`));
+app.get("*", function(req, res){
+  res.sendFile(path.resolve(__dirname, "../client/build/index.html"));
+})
+
+server.listen(PORT, () => console.log(`Server has started.`));
