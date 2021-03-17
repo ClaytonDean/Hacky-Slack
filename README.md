@@ -8,10 +8,10 @@ Hacky-Slack is a real time chatting application and was developed as a group pro
 ## Contact
 Dominic Xu dominictxu1@gmail.com
 
-## Link to deployed App
-[Link to the GitHub page](https://github.com/ClaytonDean/Hacky-Slack)
+## [Heroku Link](https://mysterious-chamber-77695.herokuapp.com/)
 
-[Heroku Link](https://mysterious-chamber-77695.herokuapp.com/)
+## [Link to the GitHub page](https://github.com/ClaytonDean/Hacky-Slack)
 
-[Heroku Link](https://mysterious-chamber-77695.herokuapp.com/)
+
+
 
